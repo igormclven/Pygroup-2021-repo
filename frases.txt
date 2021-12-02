@@ -1,4 +1,40 @@
 Frases ramdon
 Existe el paroverso?
 Solo se que nada se - Paulo coelho
+<<<<<<< HEAD
 aiuda me van a empeñar... patricio c fuerte
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:v
+>>>>>>> 21e1efb0ccd090120d7dd2d1fc1f08518edbbdf8
