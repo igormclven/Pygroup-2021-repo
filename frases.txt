@@ -1,3 +1,7 @@
 Frases ramdon
 Existe el paroverso?
+<<<<<<< HEAD
 Soy joven cabal 🥵😳🤑 
+=======
+Solo se que nada se - Paulo coelho
+>>>>>>> origin/main
