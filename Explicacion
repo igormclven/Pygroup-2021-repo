@@ -1,0 +1,124 @@
+print("hola mundo")#no necesario nunguna libreria
+
+#str = ejemplo:simbolo que representa a los numeros
+
+#Definir variable
+a=0 #no se debe definir la variable
+
+#tipo de dato
+print(type(a))
+
+#Tipos de datos
+nibool = True
+numeros = 1 #python no importa si empieza como entero y a mitad del programa se converte en decimal
+
+#listas
+lista = [] #vacia
+
+#tupla = valor inmutable, no se puede cambiar
+tupla = (1,2,3,4,5)
+tupla2 = ('Miguel', 'Nicolas')
+
+#diccionarios = coleccion desordenada de valores
+dict = {1: "Juan"} # un identificador y un dato
+dict2 = {1: "Nicolas", 2: "Goku"}
+dict["Pedro"] = "no existe" #agregar
+dict3 = {'valores': [1,2,3,4,5]} # un lista dentro de un diccionario
+
+#LECTURA
+a=int(input("ingrese a: "))
+
+#SI
+if a<0:#se usa la tabulación (dentro de la estructura anterior)
+  print("negativo")
+else:
+  print("no negativo")
+
+#SEGUN
+#no existe, nos dan un if adicional
+if a==1: #"==" es para comparar
+  print("uno")
+elif a==2:
+  print("dos")
+else:
+  print("otro")
+
+#PARA=estructura de repedicion interactiva
+for i in range(a,2*a,2):#range(desde;hasta;paso)
+  print(i)
+
+#MIENTRAS=estructura de repeticion condicional
+while a>0:
+  print(a)
+  a-=1#a=a-1
+
+#castear variables a otras
+str(23)
+
+#Lista formateada
+print(f'El num {5454} no es mayor a 30.')
+
+#PI
+from math import pi
+print(PI)
+
+#RANDOM
+import random
+print (random.random())#sin incluir
+print(random.randrang(1,3))#hasta el final sin el valor final
+print(random.randint(1, 3))#comienzo y final
+
+#raices
+  #cubicas
+  "import math" o "from math import sqrt"
+  print(math.sqrt(2))
+
+  #cubicas a más
+  print(8**(1/3))
+
+#MANEJAR DECIMALES
+num=1.2345
+formatthed='{0:.3g}'.format(num)
+print(formatted)
+
+#CONTROLAR DECIMALES EN IMPRESION
+print("%6.4f"%(pi))#"6" numero de digitos; ".4" numero de decimales
+print(pi)
+
+#REDONDEAR
+print(round(1,2))#"1" es el numero que queremos redondear y "2" es a cuantos decimales queremos redondear
+
+#FUNCIONES
+def suma(a,b): #Qué va a necesitar para ejecutar
+  return a+b #la funcion retorna algo y acaba con esto "return"
+print(suma(10,14))
+
+def factorial(a):
+  for i in range(a,0,-1):
+    a=a*i
+  return(a)
+print(factorial(5))
+
+def mayor(a,b):
+  if a>=b:
+    return a
+  else:
+    return b
+print(mayor(10,5))
+print(mayor(1,5))
+
+def permutacion(n,r):
+  return factorial(n)/factorial(n-r)
+
+def combinacion(n,r):
+  return factorial(n)/(factorial(r)*factorial(n-r))
+
+print(combinacion(10,5))
+print(permutacion(10,5))
+
+#PROCEDIMIENTOS
+def tablaMultiplicar(n):
+  for i in range(11):
+    print(n,"*",i,"=",n*i)
+tablaMultiplicar(5)
+#todo lo que yo vaya a mandar a pantalla es con procedimientos
