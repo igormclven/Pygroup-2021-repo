@@ -82,5 +82,5 @@ for i in range(11):
         break
     print(i)
 
-    print(lista)
-    print(list[2][3])
+print(lista)
+print(list[2][3])
