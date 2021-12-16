@@ -27,3 +27,36 @@ print(diccionario)
 diccionario["id"]=4321
 print(diccionario)
 print(f"nombre {diccionario[2]}")
+
+a=1
+b=2
+if(a%2)==0:
+    print(f"El valor {a} es par")
+elif(b%2)==0:
+    print(f"El valor {b} es par")
+else:
+    print("Ninguno es par")
+
+
+a=8
+b=1
+while(a>4):
+    b=b+2
+    a=a-1
+    cualquiera="pepe" if(b==3) else "juan"
+    print(cualquiera)
+
+
+dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"]
+for dia in dias:
+    print(f"el dia es {dia}")
+
+print(len(dias))
+
+for i,j in diccionario.items():
+    print(i,j)
+
+for i in range(4):
+    if(i==2):
+        break
+    print(i)
