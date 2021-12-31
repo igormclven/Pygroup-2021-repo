@@ -1,8 +1,9 @@
-# Estoy listo para jugar con python.
+# Prueba Python estructuras de datos
 mibool = True #if, while
 numeros = 33443 #for
 string = "kdfjdkf" #if, while, for
 
+#LISTAS (Las listas son mutables y pueden variar en tiempo de ejecucuión)
 lista = []
 print(lista)
 
@@ -20,10 +21,12 @@ else:
 
 print('Nada que ver xd')
 
-
+#TUPLAS (Las tuplas son inmutables y no pueden variar en tiempo de ejecución)
 tupla = (0,1,2,3,4)
 tupla2 = ('hola', 'juancarlos')
 
+
+#Los diccionarios utilizan clave:valor
 dict = {1: 'Juan',
         2: 'Miguel',
         'nombre': 'Pepe',
@@ -78,6 +81,9 @@ print(dias[1])
 print(dias[2])
 lista2 = []
 
+# Cuando se recorre un diccionario con for item in dic:, item contiene las claves, no los valores
+
+#Recorrer un diccionario con los valores
 for i,j in dict.items():
     print(i,j)
     lista2.append(j)
