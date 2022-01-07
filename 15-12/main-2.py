@@ -10,6 +10,7 @@ print(lista)
 lista = [10, 20, 30, 40]
 print(lista)
 
+#Set no puede tener datos repetidos
 
 if (lista[0] > 30):
     print('El num'+ lista[0] +'es mayor a 30')
