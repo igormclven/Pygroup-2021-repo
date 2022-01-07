@@ -1,12 +1,13 @@
-# Estoy listo para jugar con python.
-mibool = True #if, while
+# CratorresC =)
+
+mibool = True #Para sentencias de control if, iterativas while
 numeros = 33443 #for
 string = "kdfjdkf" #if, while, for
 
-lista = []
+lista = [] #La lista esta vacia
 print(lista)
 
-lista = [10, 20, 30]
+lista = [10, 20, 30, 40]
 print(lista)
 
 
@@ -24,6 +25,7 @@ print('Nada que ver xd')
 tupla = (0,1,2,3,4)
 tupla2 = ('hola', 'juancarlos')
 
+#Diccionarios
 dict = {1: 'Juan',
         2: 'Miguel',
         'nombre': 'Pepe',
