@@ -26,6 +26,7 @@ tupla = (0,1,2,3,4)
 tupla2 = ('hola', 'juancarlos')
 
 #Diccionarios
+#Clave(# o caracter) : Valor(Cualquier cosa)
 dict = {1: 'Juan',
         2: 'Miguel',
         'nombre': 'Pepe',
@@ -80,10 +81,11 @@ print(dias[1])
 print(dias[2])
 lista2 = []
 
+print("_______Estoy_______")
 for i,j in dict.items():
     print(i,j)
     lista2.append(j)
-
+print("_______Estoy_______2")
 for j in range(11):
     if j == 7:
         break
