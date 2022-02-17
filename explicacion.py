@@ -118,8 +118,34 @@ def suma(*args): # muchos elementos
 
 print(suma(1,2,3,4,5,6,7,8,9,10))
 
+# 2022-02-16 ------------------------------------------------------------------------------
 
+# ---------------------------- uso de servicios web con FLASK ---------------
 
+from flask import Flask
+
+app = Flask(__name__)
+
+## Decorador que define la ruta donde va a parecer la funcion siguiente
+@app.route("/")
+def funcionDeInicio():
+    return "<h1>Hola mama, estoy en internet!</h1>"   #aqui ya podemos usar html
+
+# toma partes del enlace como parametros
+@app.route("/calculadora/<int:n1>/<int:n2>/<string:tipo>")
+def calculadora(n1,n2,tipo):
+    if tipo== "suma":
+        return str(n1+n2)
+
+    elif tipo == "resta":
+        return str(n1 - n2)
+
+    elif tipo == "multiplicacion":
+        return str(n1 * n2)
+
+## main y port de la app
+if __name__ == '__main__':
+    app.run(port=80)
 
 
 
