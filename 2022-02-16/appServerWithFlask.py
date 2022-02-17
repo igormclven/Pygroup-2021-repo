@@ -27,4 +27,4 @@ def calculadora(n1,n2,tipo):
 
 
 if __name__ == '__main__':
-    appServerWithFlask.run(port=80)
+    appServerWithFlask.run(port=81)
