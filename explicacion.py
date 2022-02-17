@@ -83,4 +83,63 @@ for i in range(11):
     print(i)
 
 print(lista)
-print(list[2][3])
+
+
+# 2022-02-9 ------------------------------------------------------------------------------
+
+# ---------------------------- FUNCIONES ---------------
+
+# FUNCIONES: Son conjuntos de codigo que son hechas para usarse muchas veces. Buscan ser lo más sencillas posibles
+def nombre_funcion (entra_algo):
+    opera_algo = entra_algo
+    opera_algo =+ opera_algo
+    returna_algo = opera_algo
+    return returna_algo
+
+# JOIN encadena valores, en este caso el resultados de la funcion imprimirFizzbuzz
+def imprimirFizzbuzz (i):
+    return i
+
+numeros = "\n".join(imprimirFizzbuzz(i) for i in range (1,101))
+
+
+# PROCEDIMIENTO: no entran parametros ni retorna
+def imprimir():
+    print("Me llamaron")
+
+imprimir()
+
+# PASO INDEFINIDO DE PARAMETROS EN FUNCION: nosabemos cuantos parametros van a llegar, solo importa que lleguen argumentos
+def suma(*args): # muchos elementos
+    result = 0
+    for i in args:
+        result = result + i
+    return result
+
+print(suma(1,2,3,4,5,6,7,8,9,10))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
