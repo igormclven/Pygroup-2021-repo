@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin - Games Library</title>
+
+        <!-- Conexion con hojas de estilo y javascript -->
+        <link rel="stylesheet" href="../static/styleAdmin.css">
+        <script src="../static/script.js"></script>
+
+        <!-- Configuracion fuente de la letra de la pagina -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+        <link rel="shortcut icon" href="../static/iconGamesLibrary.ico" />
+
+    </head>
+    <body>
+        <!-- Boton de redireccion a modo user -->
+        <a class="button-go-user-view" onclick="redirect('/')">Go to User Page</a>
+
+        <p id="title"><b>GAME LIBRARY - Admin Mode</b></p>
+
+        <!-- Contenedor de la lista de juegos con su respectiva informacion en vista formulario -->
+        <div class="container">
+            <p><b>Games List</b></p>
+
+            <div class="variables-table">
+                <p class="variable">Title</p>
+                <p class="variable">Platforms</p>
+                <p class="variable">Release Year</p>
+                <p class="variable">Description</p>
+                <p class="variable">Image Link</p>
+                <p class="variable">Rating</p>
+            </div>
+
+            <!-- Uso de jinja para imprimir todos los registros de juegos guardados en la base de datos -->
+            {% for game in games %}
+                <!-- Formulario que al ser accionado el boton actualiza el registro con los cambios hechos -->
+                <form method="POST" action="/edit/{{game.game_id}}" class="list-games">
+                    <div class="record-game">
+                        <!-- Informacion de general del juego-->
+                        <div class="info-game">
+                            <input type="checkbox" onclick="redirect('/edit/{{game.game_id}}')" data-target="/edit/{{game.game_id}}" name="assigned">
+                            <input type="text" value="{{game.game_name}}" name="game_name" class="form-control">
+                            <input type="text" value="{{game.game_platforms}}" name="game_platforms" class="form-control">
+                            <input type="text" value="{{game.game_release_year}}" name="game_release_year" class="form-control">
+                            <input type="text" value="{{game.game_description}}" name="game_description" class="form-control">
+                            <input type="text" value="{{game.game_image_link}}" name="game_image_link" class="form-control">
+                            <input type="text" value="{{game.game_rating}}" name="game_rating" class="form-control">
+                            <button class="button-update" type="submit" value="update">Update</button>
+                        </div>
+
+                        <!-- Lista de commentarios asociados al juego -->
+                        <div class="comments-list">
+                            <p class="variable">Comments:</p>
+                            <!-- Uso de jinja para mostrar todos los comentarios hechos al juego en cuestion, si no hay ningun comentario no muestra nada -->
+                            {% for comment in comments %}
+                                <!-- uso de if para imprimir el comentario en el respectivo juego al que corresponden -->
+                                {% if comment.game_id == game.game_id %}
+                                <form method="POST" action="/edit/comments/{{comment.id}}" class="list-games">
+                                        <input type="checkbox" onclick="redirect('/edit/comments/{{comment.id}}')" data-target="/edit/comments/{{comment.id}}" name="assigned">
+                                        <input type="text" value="{{comment.commentator}}" name="commentator" class="form-control">
+                                        <input type="text" value="{{comment.comment}}" name="comment" class="form-control">
+                                        <input type="text" value="{{comment.game_id}}" name="game_id" class="form-control" hidden>
+                                        <button class="button" type="submit" value="update">Update Comment</button>
+                                </form>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </form>
+            {% endfor %}
+        </div>
+
+        <!-- Contenedor de formulario para edicion de juego -->
+        <div class="container">
+            <form method="POST" action="/admin" class="create-game">
+                <div class="form-container">
+                    <p><b>Add A New Game</b></p>
+                    <div class="dato-box">
+                        <p class="subtitle">Title: </p>
+                        <input type="text" name="game_name" class="form-box" placeholder="Title">
+                    </div>
+                    <div class="dato-box">
+                        <p class="subtitle">Platforms: </p>
+                        <input type="text" name="game_platforms" class="form-box" placeholder="Platforms">
+                    </div>
+                    <div class="dato-box">
+                        <p class="subtitle">Release Year: </p>
+                        <input type="text" name="game_release_year" class="form-box" placeholder="Release Year">
+                    </div>
+                    <div class="dato-box">
+                        <p class="subtitle">Description: </p>
+                        <input type="text" name="game_description" class="form-box" placeholder="Description">
+                    </div>
+                    <div class="dato-box">
+                        <p class="subtitle">Image Link: </p>
+                        <input type="text" name="game_image_link" class="form-box" placeholder="Image Link">
+                    </div>
+                    <div class="dato-box">
+                        <p class="subtitle">Rating: </p>
+                        <input type="text" name="game_rating" class="form-box" placeholder="Rating">
+                    </div>
+                    <div>
+                        <button class="button-create" type="submit" value="update">Create New Game</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+# 1
+Title:Batman Arkham Knight
+Platforms:PS4 - XBOX ONE - PC
+Release Year:2015
+Description:Batman:Arkham Knight is a 2015 action-adventure game developed by Rocksteady Studios and published by Warner Bros. Interactive Entertainment. Based on the DC Comics superhero Batman, it is the successor to the 2013 video game Batman: Arkham Origins, and the fourth main installment in the Batman: Arkham series.
+Image Link:https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2017/02/batman-arkham-knight-caratula.jpg?itok=I_IJakjt
+Rating:4.5/5.0
+
+#2
+Title:God Of War
+Platforms:PS4 - PC
+Release Year:2018
+Description:God of War is an action-adventure game franchise created by David Jaffe at Sony's Santa Monica Studio. It began in 2005 on the PlayStation 2 video game console, and has become a flagship title for the PlayStation brand, consisting of ten games across multiple platforms with an eleventh currently in development.
+Image Link:https://as.com/meristation/imagenes/2020/09/17/game_cover/479791341600340811.jpg
+Rating:4.7/5.0
+
+#3
+Title:The Last Of Us Part 2
+Platforms:PS4
+Release Year:2020
+Description:The Last of Us Part II is a 2020 action-adventure game developed by Naughty Dog and published by Sony Interactive Entertainment for the PlayStation 4.
+Image Link:https://as01.epimg.net/meristation/imagenes/2019/09/25/game_cover/183891271569432001.jpg
+Rating:4.0/5.0
+
+#4
+Title:Marvel's Spider-man
+Platforms:PS4
+Release Year:2018
+Description:Marvel's Spider-Man is a 2018 action-adventure game developed by Insomniac Games and published by Sony Interactive Entertainment.
+Image Link:https://i.pinimg.com/750x/d4/a5/1e/d4a51e139b964c8f63cfc41e9f427587.jpg
+Rating:4.6/5.0

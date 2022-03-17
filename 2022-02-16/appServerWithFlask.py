@@ -9,7 +9,7 @@ appServerWithFlask = Flask(__name__)
 def funcionDeInicio():
     return "<h1>Hola mama, estoy en internet!</h1>"
 
-# en la ruta va a tener un parametro que tomaremos
+# en la ruta va a tener un parametro que tomaremos. ESTAS PETICIONES VA A SER GET PORQUE NO LE DECIMOS LO CONTRARIO
 @appServerWithFlask.route("/saludo/<string:nombre>")
 def funcion(nombre):
     return f"Hola {nombre}"

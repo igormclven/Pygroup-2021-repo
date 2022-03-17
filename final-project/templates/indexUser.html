@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Games Library</title>
+
+        <!-- Conexion con hojas de estilo y javascript -->
+        <link rel="stylesheet" href="../static/styleUser.css">
+        <script src="../static/script.js"></script>
+
+        <!-- Configuracion fuente de la letra de la pagina -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+        <link rel="shortcut icon" href="../static/iconGamesLibrary.ico" />
+    </head>
+    <body>
+        <!-- Boton de redireccion a modo user -->
+        <a class="button-go-admin-view" onclick="redirect('/admin')">Go to Admin Page</a>
+
+        <p id="title"><b>GAMES LIBRARY</b></p>
+
+        <!-- Contenedor de la lista de juegos con su respectiva informacion en vista usuario -->
+        <section class="container">
+            <!-- Uso de jinja para imprimir todos los registros de juegos guardados en la base de datos -->
+            {% for game in games %}
+                <div class="game">
+                    <img class="game-image" src="{{game.game_image_link}}" width="150px" height="200px"/>
+                    <div class="info-and-comments-game">
+                        <section id="info-game">
+                            <p id="game-name"><b>TITLE:</b> {{game.game_name}}</p>
+                            <p id="game-platforms"><b>PLATFORMS:</b> {{game.game_platforms}}</p>
+                            <p id="game-release-year"><b>RELEASE YEAR:</b> {{game.game_release_year}}</p>
+                            <p id="game-description"><b>DESCRIPTION:</b> {{game.game_description}}</p>
+                            <p id="game-rating"><b>RATING:</b> {{game.game_rating}}</p>
+                            <p id="title-game-comments"><b>COMMENTS:</b> </p>
+                            <!-- Uso de jinja para imprimir todos los commentarios asociados al juego en cuestion -->
+                            {% for comment in comments %}
+                                <!-- uso de if para imprimir el comentario en el respectivo juego al que corresponden -->
+                                {% if comment.game_id == game.game_id %}
+                                    <p id="game-comments">
+                                        - {{comment.commentator}}: {{comment.comment}}
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        </section>
+
+                        <!-- seccion que contine formulario para adicionar unnuevo comentario -->
+                        <section class="comments">
+                            <p id="create-new-comment"><b>Add a new comment:</b> </p>
+                            <form method="POST" action="/commentUser" class="create-game">
+                                <div class="dato-box">
+                                    <p class="subtitle">Commentator: </p>
+                                    <input type="text" name="commentator" class="new-comment-area" placeholder="Commentator">
+                                </div>
+                                <div class="dato-box">
+                                    <p class="subtitle">Comment: </p>
+                                    <input type="text" name="comment" class="new-comment-area" placeholder="Comment">
+                                </div>
+                                <div class="dato-box">
+                                    <input type="text" name="game_id" value="{{game.game_id}}" class="form-box" placeholder="Platforms" hidden>
+                                </div>
+                                <div>
+                                    <button class="button-comment" type="submit" value="update">Comment</button>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </body>
+</html>
