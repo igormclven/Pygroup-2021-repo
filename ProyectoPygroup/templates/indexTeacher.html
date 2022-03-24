@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicativo Notas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main class="container p-4">
+        <h1>
+            Bienvenid@ {{teacher.name}}
+        </h1>
+             <div class="row">
+                <div class="col md-3 offset md-3 my-auto">
+                    <div class="card">
+                      <div class="card-header">
+                          <h1>Notas de {{subject.name}}</h1>
+                      </div>
+                      <div class="card-body">
+                          <ul class="list-group">
+                              {%for grade in grades%}
+                                {%for student in students%}
+                                    {%if  student.cod == grade.cod_student%}
+                                          <li class="list-group-item">
+                                              <form action="/login/nota/{{student.cod}} / {{teacher.cod}}" method="GET" method="POST">
+                                                  <div>
+                                                      {{student.cod}}
+                                                      |
+                                                      {{student.name}}
+                                                      | Nota:
+                                                      <input type="text" name="nota" class="form-control" placeholder="{{grade.grade}}">
+                                                      <button type="submit" class="btn btn-success">Guardar</button>
+                                                  </div>
+                                              </form>
+                                          </li>
+                                    {% endif %}
+                                {%endfor%}
+                              {%endfor%}
+                          </ul>
+                      </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+</body>
+</html>
