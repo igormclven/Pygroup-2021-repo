@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Categories</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Pharmacy shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/bootstrap4/bootstrap.min.css') }}">
+<link href="{{ url_for('static', filename='plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='plugins/jquery-ui-1.12.1.custom/jquery-ui.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/categories.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/categories_responsive.css') }}">
+</head>
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
+			<div class="logo"><a href="#">Wish</a></div>
+			<nav class="main_nav">
+				<ul>
+					<li><a href="index.html">Medicamentos</a></li>
+					<li><a href="categories.html">Belleza</a></li>
+					<li><a href="categories.html">Bebes</a></li>
+					<li><a href="categories.html">Cuidado personal</a></li>
+					<li><a href="contact.html">Todas</a></li>
+				</ul>
+			</nav>
+			<div class="header_content ml-auto">
+				<div class="shopping">
+					<!-- Cart -->
+					<a href="#">
+						<div class="cart">
+							<img src="{{ url_for('static', filename='images/shopping-bag.svg') }}" alt="">
+							<div class="cart_num_container">
+								<div class="cart_num_inner">
+									<div class="cart_num">1</div>
+								</div>
+							</div>
+						</div>
+					</a>
+					<!-- Star -->
+<!--					<a href="#">-->
+<!--						<div class="star">-->
+<!--							<img src="images/star.svg" alt="">-->
+<!--							<div class="star_num_container">-->
+<!--								<div class="star_num_inner">-->
+<!--									<div class="star_num">0</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</a>-->
+					<!-- Avatar -->
+					<a href="#">
+						<div class="avatar">
+							<img src="{{ url_for('static', filename='images/avatar.svg') }}" alt="">
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm"><div></div><div></div><div></div></div>
+		</div>
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="logo menu_mm"><a href="#">Wish</a></div>
+		<div class="search">
+			<form action="#">
+				<input type="search" class="search_input menu_mm" required="required">
+				<button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm" src="images/magnifying-glass.svg" alt=""></button>
+			</form>
+		</div>
+		<nav class="menu_nav">
+			<ul class="menu_mm">
+				<li class="menu_mm"><a href="">Zona Centro</a></li>
+				<li class="menu_mm"><a href="#">Zona Norte</a></li>
+				<li class="menu_mm"><a href="#">Zona Sur</a></li>
+				<li class="menu_mm"><a href="#">Zona Oriente</a></li>
+				<li class="menu_mm"><a href="#">Zona Occidente</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ url_for('static', filename='images/categories.jpg') }}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_container">
+						<div class="home_content">
+							<div class="home_title">Woman</div>
+							<div class="breadcrumbs">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li>Woman</li>
+									<li>Accessories</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Products -->
+
+	<div class="products">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					
+					<!-- Sidebar Left -->
+
+					<div class="sidebar_left clearfix">
+
+						<!-- Categories -->
+						<div class="sidebar_section">
+							<div class="sidebar_title">Categories</div>
+							<div class="sidebar_section_content">
+								<ul>
+									<li><a href="#">Wedding Dresses (23)</a></li>
+									<li><a href="#">Swimsuits (11)</a></li>
+									<li><a href="#">Jeans (61)</a></li>
+									<li><a href="#">Tops (34)</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="current_page">Woman's Fashion</div>
+				</div>
+				<div class="col-12">
+					<div class="product_sorting clearfix">
+						<div class="sorting">
+							<ul class="item_sorting">
+								<li>
+									<span class="sorting_text">Show all</span>
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+									<ul>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Show All</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "stars" }'><span>Stars</span></li>
+									</ul>
+								</li>
+								<li>
+									<span class="sorting_text">Show</span>
+									<span class="num_sorting_text">12</span>
+									<i class="fa fa-caret-down" aria-hidden="true"></i>
+									<ul>
+										<li class="num_sorting_btn"><span>3</span></li>
+										<li class="num_sorting_btn"><span>6</span></li>
+										<li class="num_sorting_btn"><span>12</span></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row products_container">
+				<div class="col">
+					
+					<!-- Products -->
+
+					<div class="product_grid">
+
+						<!-- Product -->
+						<div class="product">
+							<div class="product_image"><img src="{{ url_for('static', filename='images/product_1.jpg') }}" alt=""></div>
+							<div class="rating rating_4" data-rating="4">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</div>
+							<div class="product_content clearfix">
+								<div class="product_info">
+									<div class="product_name"><a href="product.html">Woman's Long Dress</a></div>
+									<div class="product_price">$45.00</div>
+								</div>
+								<div class="product_options">
+									<div class="product_buy product_option"><img src="{{ url_for('static', filename='images/shopping-bag-white.svg') }}" alt=""></div>
+									<div class="product_fav product_option">+</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='styles/bootstrap4/popper.js') }}"></script>
+<script src="{{ url_for('static', filename='styles/bootstrap4/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/easing/easing.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/parallax-js-master/parallax.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/Isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.js') }}"></script>
+<script src="{{ url_for('static', filename='plugins/jquery-ui-1.12.1.custom/jquery-ui.js') }}"></script>
+<script src="{{ url_for('static', filename='js/categories_custom.js') }}"></script>
+</body>
+</html>
