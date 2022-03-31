@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Carro de compras</title>
+<title>Bolsa de compras</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Pharmacy shop project">
@@ -74,7 +74,7 @@
 				<div class="col">
 					<div class="home_container">
 						<div class="home_content">
-							<div class="home_title">Carro de compras</div>
+							<div class="home_title">Bolsa de compras</div>
 							<div class="breadcrumbs">
 								<ul>
 									<li>Zona {{ data.current_zone }}</li>
@@ -93,18 +93,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="cart_title">Tu carro de compras</div>
+					<div class="cart_title">Tu bolsa de compras</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col">
 					<div class="cart_bar d-flex flex-row align-items-center justify-content-start">
-						<div class="cart_bar_title_name">Pedido</div>
+						<div class="cart_bar_title_name">Producto</div>
 						<div class="cart_bar_title_content ml-auto">
 							<div class="cart_bar_title_content_inner d-flex flex-row align-items-center justify-content-end">
-								<div class="cart_bar_title_price">Fecha Entrega</div>
-								<div class="cart_bar_title_quantity">Estado</div>
-								<div class="cart_bar_title_total">Valor Total</div>
+								<div class="cart_bar_title_price">Precio</div>
+								<div class="cart_bar_title_quantity">Cantidad</div>
+								<div class="cart_bar_title_total">Total</div>
 								<div class="cart_bar_title_button"></div>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 						<ul>
 							<li class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
 								<!-- Product Image -->
-<!--								<div class="cart_product_image"><img src="{{ url_for('static', filename='images/cart_product_1.jpg') }}" alt=""></div>-->
+								<div class="cart_product_image"><img src="{{ url_for('static', filename='images/cart_product_1.jpg') }}" alt=""></div>
 								<!-- Product Name -->
 								<div class="cart_product_name"><a>2 Piece Swimsuit</a></div>
 								<div class="cart_product_info ml-auto">
@@ -125,17 +125,39 @@
 										<!-- Product Price -->
 										<div class="cart_product_price">$35.00</div>
 										<!-- Product Quantity -->
-										<div class="cart_product_price">Entregado</div>
+										<div class="product_quantity_container">
+											<div class="product_quantity clearfix">
+												<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+												<div class="quantity_buttons">
+													<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+													<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+												</div>
+											</div>
+										</div>
 										<!-- Products Total Price -->
 										<div class="cart_product_total">$35.00</div>
 										<!-- Product Cart Trash Button -->
 										<div class="cart_product_button">
-											<button class="cart_product_remove"><img src="images/trash.png" alt=""></button>
+											<button class="cart_product_remove"><img src="{{ url_for('static', filename='images/trash.png') }}" alt=""></button>
 										</div>
 									</div>
 								</div>
 							</li>
 						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row cart_extra">
+				<!-- Cart Total -->
+				<div class="col-lg-5 offset-lg-1">
+					<div class="cart_total">
+						<ul>
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="cart_total_title">Total</div>
+								<div class="cart_total_price ml-auto">$40.00</div>
+							</li>
+						</ul>
+						<button class="cart_total_button">Confirmar pedido</button>
 					</div>
 				</div>
 			</div>

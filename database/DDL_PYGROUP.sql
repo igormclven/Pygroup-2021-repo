@@ -1,0 +1,166 @@
+/* Create Tables */
+
+CREATE TABLE CLIENTE
+(
+	K_TIPOID VARCHAR(2) NOT NULL,	-- Tipo de identificacion (CC,CE,PA,NI,OT)
+	K_IDENTIFICACION NUMBER(10) NOT NULL,	-- Identificación del cliente
+	N_NOMBRE VARCHAR2(50) NOT NULL,	-- Nombres del cliente
+	N_APELLIDO VARCHAR2(50) NOT NULL,	-- Apellidos del clente
+	N_CIUDAD VARCHAR(50) NOT NULL,	-- Ciudad del cliente
+	N_DIRECCION VARCHAR2(50) NOT NULL,	-- Direccion del cliente
+	N_EMAIL VARCHAR2(50) NOT NULL, -- EMAIL DEL CLIENTE
+	Q_TELEFONO NUMBER(10) NOT NULL	-- Telefono de contacto del cliente
+)
+;
+
+CREATE TABLE  CATEGORIA
+(
+	K_CATEGORIA NUMBER(10) NOT NULL,	-- codigo de la categoría
+	N_NOMCATEGORIA VARCHAR2(50) NOT NULL	-- nombre de la categoría
+)
+;
+
+CREATE TABLE  INVENTARIO
+(
+	K_ZONA NUMBER(2) NOT NULL,	-- codigo de la zona
+	K_PRODUCTO NUMBER(10) NOT NULL,	-- código del producto
+	Q_ENEXISTENCIA NUMBER(10) NOT NULL,	-- número de productos en existencia
+	V_PRECIO_UNIDAD NUMBER(11,2) NOT NULL	-- valor del producto para su respectiva zona
+)
+;
+
+CREATE TABLE  ITEM
+(
+	K_ORDEN_FK VARCHAR(50) NOT NULL,	-- codigo de la orden
+	K_ITEM NUMBER(8) NOT NULL,	-- consecutivo para cada item
+	Q_CANTIDAD NUMBER(8) NOT NULL,	-- cantidad del item solicitado
+	V_PRECIO NUMBER(11,2) NOT NULL,	-- precio calculado según la cantidad del item
+	K_ZONA NUMBER(2) NULL,	-- codigo de la zona
+	K_PRODUCTO NUMBER(10) NULL	-- codigo del producto
+)
+;
+
+CREATE TABLE  PEDIDO
+(
+	K_PEDIDO VARCHAR(50) NOT NULL,	-- identificador del pedido
+	F_PEDIDO DATE NOT NULL,	-- fecha de la realización del pedido
+	F_LLEGADA DATE NULL,	-- fecha de la llegada del pedido
+	I_ESTADO VARCHAR(3) NOT NULL,	-- estado del pedido
+	Q_VALORT NUMBER(11,2) NOT NULL,	-- valor total del pedido
+	Q_CALIFICACIONPEDIDO NUMBER(4,2) NOT NULL,	-- calificación del pedido hecha por un cliente
+	I_TIPOID_CLI VARCHAR(2) NOT NULL,	-- tipo de identificación del cliente
+	Q_IDENTIFICACION_CLI NUMBER(10) NOT NULL	-- numero de identificación del cliente
+)
+;
+
+CREATE TABLE  PRODUCTO
+(
+	K_PRODUCTO NUMBER(10) NOT NULL,	--  Codigo del producto
+	N_NOMPRODUCTO VARCHAR2(50) NOT NULL,	-- nombre del producto
+	N_DESCPRODUCTO VARCHAR2(50) NOT NULL,	-- descripción del producto
+	K_CATE_PRODUCTO NUMBER(10) NOT NULL,	-- codigo de la categoría del producto
+	N_IMAGEN BLOB DEFAULT EMPTY_BLOB() -- imagen del producto
+)
+;
+
+CREATE TABLE  ZONA
+(
+	K_ZONA NUMBER(2) NOT NULL,	-- código de la region, hace parte de la llave primaria compuesta
+	N_NOMBRE_REGION VARCHAR2(50) NOT NULL	-- Nombre de la región en cuestión
+)
+;
+
+/* Create Primary Keys, Indexes, Uniques, Checks, Triggers */
+
+ALTER TABLE  CLIENTE
+ ADD CONSTRAINT PK_Cliente
+	PRIMARY KEY (K_TIPOID, K_IDENTIFICACION)
+ USING INDEX
+;
+
+ALTER TABLE  CATEGORIA
+ ADD CONSTRAINT PK_Categoria
+	PRIMARY KEY (K_CATEGORIA)
+ USING INDEX
+;
+
+ALTER TABLE  INVENTARIO
+ ADD CONSTRAINT PK_Inventario
+	PRIMARY KEY (K_ZONA,K_PRODUCTO)
+ USING INDEX
+;
+
+CREATE INDEX IXFK_Inventario_Producto
+ ON  INVENTARIO (K_PRODUCTO)
+;
+
+CREATE INDEX IXFK_Inventario_ZONA
+ ON  INVENTARIO (K_ZONA)
+;
+
+ALTER TABLE  ITEM
+ ADD CONSTRAINT PK_Item
+	PRIMARY KEY (K_ITEM,K_ORDEN_FK)
+ USING INDEX
+;
+
+CREATE INDEX IXFK_Item_Inventario
+ ON  ITEM (K_ZONA,K_PRODUCTO)
+;
+
+CREATE INDEX IXFK_Item_Orden
+ ON  ITEM (K_ORDEN_FK)
+;
+
+ALTER TABLE  PEDIDO
+ ADD CONSTRAINT PK_PEDIDO
+	PRIMARY KEY (K_PEDIDO)
+ USING INDEX
+;
+
+CREATE INDEX IXFK_Pedido_Cliente
+ ON  PEDIDO (I_TIPOID_CLI,Q_IDENTIFICACION_CLI)
+;
+
+ALTER TABLE  PRODUCTO
+ ADD CONSTRAINT PK_Producto
+	PRIMARY KEY (K_PRODUCTO)
+ USING INDEX
+;
+
+CREATE INDEX IXFK_Producto_Categoria
+ ON  PRODUCTO (K_CATE_PRODUCTO)
+;
+
+ALTER TABLE  ZONA
+ ADD CONSTRAINT PK_ZONA
+	PRIMARY KEY (K_ZONA)
+ USING INDEX
+;
+
+/* Create Foreign Key Constraints */
+
+ALTER TABLE  INVENTARIO
+ ADD CONSTRAINT FK_Inventario_Producto
+	FOREIGN KEY (K_PRODUCTO) REFERENCES  PRODUCTO (K_PRODUCTO)
+;
+
+ALTER TABLE  INVENTARIO
+ ADD CONSTRAINT FK_Inventario_Region
+	FOREIGN KEY (K_ZONA) REFERENCES  ZONA (K_ZONA)
+;
+
+ALTER TABLE  ITEM
+ ADD CONSTRAINT FK_Item_Orden
+	FOREIGN KEY (K_ORDEN_FK) REFERENCES  PEDIDO (K_PEDIDO)
+;
+
+ALTER TABLE  PEDIDO
+ ADD CONSTRAINT FK_Pedido_Cliente
+	FOREIGN KEY (I_TIPOID_CLI,Q_IDENTIFICACION_CLI) REFERENCES  CLIENTE (K_TIPOID,K_IDENTIFICACION)
+;
+
+ALTER TABLE  PRODUCTO
+ ADD CONSTRAINT FK_Producto_Categoria
+	FOREIGN KEY (K_CATE_PRODUCTO) REFERENCES  CATEGORIA (K_CATEGORIA)
+;

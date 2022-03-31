@@ -1,21 +1,24 @@
 from http import HTTPStatus
+from querys import *
 from flask import Blueprint, Response, request, render_template, url_for
-
 
 cart = Blueprint("cart", __name__, url_prefix="/cart")
 categories = Blueprint("categories", __name__, url_prefix="/categories")
+bag = Blueprint("bag", __name__, url_prefix="/bag")
 
-RESPONSE_BODY = {"message": "", "data": [], "errors": [], "metadata": []}
+# RESPONSE_BODY = {"message": "", "data": [], "errors": [], "metadata": []}
 
-# @cart.route("/", methods=["GET"])
-# def show_product():
-#     create_zone('Centro')
-#     return render_template('cart.html')
-#
-# @categories.route("/", methods=["GET"])
-# def show_categories():
-#     return render_template('categories.html')
+@cart.route("/", methods=["GET"])
+def show_product():
+    return getProductsWhitPrice()
 
+@categories.route("/", methods=["GET"])
+def show_categories():
+    return render_template('categories.html', data=getCategoriesNames())
+
+@bag.route("/",methods=["GET"])
+def show_bag_shop():
+    return render_template('bag.html', data=getCategoriesNames())
 
 # Rutas
 # @app.route("/", methods=["POST", "GET"])

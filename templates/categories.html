@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Categories</title>
+<title>Categorias</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Pharmacy shop project">
@@ -21,46 +21,29 @@
 
 	<header class="header">
 		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><a href="#">Wish</a></div>
+			<div class="logo"><a>Pharmasy.com</a></div>
 			<nav class="main_nav">
 				<ul>
-					<li><a href="index.html">Medicamentos</a></li>
-					<li><a href="categories.html">Belleza</a></li>
-					<li><a href="categories.html">Bebes</a></li>
-					<li><a href="categories.html">Cuidado personal</a></li>
-					<li><a href="contact.html">Todas</a></li>
+					{% for i in range(5) %}
+					<li><a href="{{ data.categories[i] }}">{{ data.categories[i] }}</a></li>
+					{% endfor %}
+					<li><a href="">Todas</a></li>
 				</ul>
 			</nav>
 			<div class="header_content ml-auto">
 				<div class="shopping">
 					<!-- Cart -->
-					<a href="#">
-						<div class="cart">
-							<img src="{{ url_for('static', filename='images/shopping-bag.svg') }}" alt="">
-							<div class="cart_num_container">
-								<div class="cart_num_inner">
-									<div class="cart_num">1</div>
-								</div>
-							</div>
+					<a href="../shopcart">
+						<div class="bag">
+							<img src="{{ url_for('static', filename='images/shopping-cart.svg') }}" alt="">
 						</div>
 					</a>
-					<!-- Star -->
-<!--					<a href="#">-->
-<!--						<div class="star">-->
-<!--							<img src="images/star.svg" alt="">-->
-<!--							<div class="star_num_container">-->
-<!--								<div class="star_num_inner">-->
-<!--									<div class="star_num">0</div>-->
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</a>-->
-					<!-- Avatar -->
-					<a href="#">
-						<div class="avatar">
-							<img src="{{ url_for('static', filename='images/avatar.svg') }}" alt="">
-						</div>
-					</a>
+					<!-- Bag -->
+                        <a href="../shopbag ">
+                            <div class="bag ">
+                                <img src="{{ url_for('static', filename='images/shopping-bag.svg') }}" alt=" ">
+                            </div>
+                        </a>
 				</div>
 			</div>
 
@@ -72,20 +55,14 @@
 
 	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
 		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
-		<div class="logo menu_mm"><a href="#">Wish</a></div>
-		<div class="search">
-			<form action="#">
-				<input type="search" class="search_input menu_mm" required="required">
-				<button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm" src="images/magnifying-glass.svg" alt=""></button>
-			</form>
-		</div>
+		<div class="logo menu_mm"><a>Pharmasy.com</a></div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="">Zona Centro</a></li>
-				<li class="menu_mm"><a href="#">Zona Norte</a></li>
-				<li class="menu_mm"><a href="#">Zona Sur</a></li>
-				<li class="menu_mm"><a href="#">Zona Oriente</a></li>
-				<li class="menu_mm"><a href="#">Zona Occidente</a></li>
+				<li class="menu_mm"><a href="../categories/Centro">Zona Centro</a></li>
+				<li class="menu_mm"><a href="../categories/Norte">Zona Norte</a></li>
+				<li class="menu_mm"><a href="../categories/Sur">Zona Sur</a></li>
+				<li class="menu_mm"><a href="../categories/Oriente">Zona Oriente</a></li>
+				<li class="menu_mm"><a href="../categories/Occidente">Zona Occidente</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -99,12 +76,10 @@
 				<div class="col">
 					<div class="home_container">
 						<div class="home_content">
-							<div class="home_title">Woman</div>
+							<div class="home_title">Categorias</div>
 							<div class="breadcrumbs">
 								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li>Woman</li>
-									<li>Accessories</li>
+									<li>Zona {{ data.current_zone }}</li>
 								</ul>
 							</div>
 						</div>
@@ -127,19 +102,18 @@
 
 						<!-- Categories -->
 						<div class="sidebar_section">
-							<div class="sidebar_title">Categories</div>
+							<div class="sidebar_title">Categorias</div>
 							<div class="sidebar_section_content">
 								<ul>
-									<li><a href="#">Wedding Dresses (23)</a></li>
-									<li><a href="#">Swimsuits (11)</a></li>
-									<li><a href="#">Jeans (61)</a></li>
-									<li><a href="#">Tops (34)</a></li>
+									{% for categoria in data.categories %}
+										<li><a href="{{ categoria }}">{{ categoria }}</a></li>
+									{% endfor %}
 								</ul>
 							</div>
 						</div>
 					</div>
 
-					<div class="current_page">Woman's Fashion</div>
+					<div class="current_page">{{ data.current_category }}</div>
 				</div>
 				<div class="col-12">
 					<div class="product_sorting clearfix">
@@ -194,7 +168,6 @@
 								</div>
 								<div class="product_options">
 									<div class="product_buy product_option"><img src="{{ url_for('static', filename='images/shopping-bag-white.svg') }}" alt=""></div>
-									<div class="product_fav product_option">+</div>
 								</div>
 							</div>
 						</div>

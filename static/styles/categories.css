@@ -487,12 +487,8 @@ section
 	font-weight: 600;
 	color: #FFFFFF;
 }
-.star img
-{
-	width: 20px;
-	height: 20px;
-}
-.avatar img
+.bag img,
+.cart img
 {
 	width: 20px;
 	height: 20px;
