@@ -1,0 +1,39 @@
+.board{
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.title{
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.column-flex{
+    display: flex;
+}
+
+.column{
+  flex: 1;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.column-title{
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+  
+}
+
+.task{
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.task-user{
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: justify;
+}
